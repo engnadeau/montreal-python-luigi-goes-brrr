@@ -224,7 +224,7 @@ class RunPipeline(luigi.WrapperTask):
     max_iter = luigi.IntParameter(default=200)
 
     def requires(self):
-        return ModelValidation(
+        yield ModelValidation(
             test_size=self.test_size,
             random_state=self.random_state,
             max_iter=self.max_iter,
